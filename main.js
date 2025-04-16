@@ -1,103 +1,100 @@
-// --- Configuration ---
-const songs = [
-    {
-        title: "Milagro de satan Teresa feat Martin Corona",
-        artist: "Tao Tormenta Ahau Talam",
-        src: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.mp3",
-        scene: "assets/scenes/satan_teresa/",
-        sceneGif: "satan_teresa.gif"
-    },
-    {
-        title: "El Payaso Triste",
-        artist: "Tao Tormenta feaat. Hamura Beatsss",
-        src: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.mp3",
-        scene: "assets/scenes/payaso_triste/",
-        sceneGif: "payaso_triste.gif"
-    },
-    {
-        title: "Que se Prenda el Cerro",
-        artist: "Tao Tormenta  Hamura Beatsss",
-        src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3",
-        scene: "assets/scenes/cerro/",
-        sceneGif: "cerro.gif"
-    }
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const audioPlayer = document.getElementById("audioPlayer");
+  const playButton = document.querySelector(".control-button.play");
+  const prevButton = document.querySelector(".control-button.prev");
+  const nextButton = document.querySelector(".control-button.next");
+  const muteButton = document.querySelector(".control-button.mute");
+  const songTitleElement = document.querySelector(".song-title span"); // Target the inner span
+  const volumeControl = document.getElementById("volumeControl");
+  const lyricsButton = document.getElementById("lyricsButton");
+  const lyricsContainer = document.getElementById("lyricsContainer");
+  const sceneImage = document.querySelector(".scene-container img"); // Get the image element
 
-// --- DOM Elements ---
-const playerContainer = document.querySelector('.player-container');
-const crtScreen = document.querySelector('.crt-screen');
-const sceneContainer = document.querySelector('.scene-container');
-const songTitleElement = document.querySelector('.song-title');
-const playButton = document.querySelector('.play');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-const muteButton = document.querySelector('.mute');
+  const songs = [
+    { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", scene: "assets/scenes/cerro/cerro.gif" },
+    { title: "Milagro de satan Teresa", artist: "Tao Tormenta & Ahau Talam feat. Martin Corona", src: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.mp3", scene: "assets/scenes/satan_teresa/satan_teresa.gif" },
+    { title: "El Payaso Triste", artist: "Tao Tormenta feat. Hamura Beatsss", src: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.mp3", scene: "assets/scenes/payaso_triste/payaso_triste.gif" },
+  ];
+  let currentSongIndex = 0;
+  let isMuted = false;
 
-// --- State ---
-let currentSongIndex = 0;
-let audio = new Audio();
-let isPlaying = false;
-let isMuted = false;
-
-// --- Functions ---
-function loadSong(index) {
-    const song = songs[index];
-    audio.src = song.src;
-    songTitleElement.textContent = `${song.title} - ${song.artist}`;
-    // Clear existing scene
-    sceneContainer.innerHTML = '';
-    // Create and append the scene image
-    const img = document.createElement('img');
-    img.src = song.scene + song.sceneGif;
-    img.alt = song.title;
-    img.style.maxWidth = '100%';
-    img.style.maxHeight = '100%';
-    sceneContainer.appendChild(img);
-}
-
-function playSong() {
-    audio.play();
-    isPlaying = true;
-    playButton.textContent = '⏸️'; // Pause icon
-}
-
-function pauseSong() {
-    audio.pause();
-    isPlaying = false;
-    playButton.textContent = '▶️'; // Play icon
-}
-
-function togglePlay() {
-    if (isPlaying) {
-        pauseSong();
+  function loadSong(songIndex) {
+    const song = songs[songIndex];
+    audioPlayer.src = song.src;
+    songTitleElement.textContent = `${song.title} - ${song.artist}`; // Set title and artist
+    sceneImage.src = song.scene; // Update scene image
+    sceneImage.alt = song.title; // Update alt text
+    // Reset play button icon if needed when loading a new song
+    if (audioPlayer.paused) {
+        playButton.textContent = "▶️";
     } else {
-        playSong();
+        // If it was playing, play the new song immediately
+        audioPlayer.play().catch(e => console.error("Error playing audio:", e));
+        playButton.textContent = "⏸️";
     }
-}
+  }
 
-function playNextSong() {
+  function playPauseSong() {
+    if (audioPlayer.paused) {
+      audioPlayer.play().catch(e => console.error("Error playing audio:", e));
+      playButton.textContent = "⏸️";
+    } else {
+      audioPlayer.pause();
+      playButton.textContent = "▶️";
+    }
+  }
+
+  function nextSong() {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     loadSong(currentSongIndex);
-    playSong();
-}
+  }
 
-function playPrevSong() {
+  function prevSong() {
     currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
     loadSong(currentSongIndex);
-    playSong();
-}
+  }
 
-function toggleMute() {
+  function toggleMute() {
     isMuted = !isMuted;
-    audio.muted = isMuted;
-    muteButton.textContent = isMuted ? '🔊' : '🔇';
-}
+    audioPlayer.muted = isMuted;
+    muteButton.textContent = isMuted ? " Muted" : "🔇"; // Update icon/text
+  }
 
-// --- Event Listeners ---
-playButton.addEventListener('click', togglePlay);
-nextButton.addEventListener('click', playNextSong);
-prevButton.addEventListener('click', playPrevSong);
-muteButton.addEventListener('click', toggleMute);
+  // Event Listeners for Audio Controls
+  playButton.addEventListener("click", playPauseSong);
+  nextButton.addEventListener("click", nextSong);
+  prevButton.addEventListener("click", prevSong);
+  muteButton.addEventListener("click", toggleMute);
 
-// --- Initialization ---
-loadSong(currentSongIndex);
+  // Keep existing Volume and Lyrics logic
+  volumeControl.addEventListener("input", () => {
+    audioPlayer.volume = volumeControl.value;
+    // Unmute if user adjusts volume while muted
+    if (isMuted && audioPlayer.volume > 0) {
+        toggleMute();
+    }
+  });
+
+  lyricsButton.addEventListener("click", () => {
+    lyricsContainer.style.display =
+      lyricsContainer.style.display === "none" ? "flex" : "none";
+  });
+
+  // Load the initial song
+  loadSong(currentSongIndex);
+
+  // Update play/pause button when song ends
+  audioPlayer.addEventListener('ended', () => {
+    playButton.textContent = "▶️";
+    // Optional: Automatically play next song
+    // nextSong();
+  });
+
+  // Update play/pause button state if playback state changes externally
+  audioPlayer.addEventListener('play', () => {
+    playButton.textContent = "⏸️";
+  });
+  audioPlayer.addEventListener("pause", () => {
+    playButton.textContent = "▶️";
+  });
+}); // End of DOMContentLoaded listener

@@ -17,7 +17,27 @@
       <!-- CRT Screen -->
       <div class="crt-screen">
         <div class="scene-container">
-          <!-- Scene will go here -->
+          <img
+            src="assets/scenes/cerro/cerro.gif"
+            alt="Cerro Image"
+            id="cerroImage"
+          />
+        </div>
+        <div id="lyricsContainer">
+          <p id="lyricsText">
+            Yo soy el payaso , yo era un payaso muy feliz, pero me puse triste,
+            me puse triste, me puse muy triste, yo era un payaso muy feliz, pero
+            me pusieron triste, triste, me pusieron triste. Fui al doctor y me
+            dijo que viera a un payaso, pero yo soy el payaso, el payaso triste
+            el payaso triste. El Dr. me dijo que fuera a ver a un payaso, el
+            payaso triste, yo soy el payaso, el payaso triste. Después de eso,
+            yo seguí a un carnaval, me fui a brincar, pero solo me puse más
+            triste. Tengo recuerdos de mi infancia, y me ponen triste, triste.
+            Solo quiero ir a la escuela para poder ver amigos, que no me vean
+            triste.... ¿amigos? Por eso me pongo triste, porque todos se van de
+            mí, por eso yo soy el payaso, el payaso triste. Pero canto esta
+            canción para poner felices a todos.
+          </p>
         </div>
       </div>
 
@@ -29,8 +49,27 @@
         <button class="control-button mute">🔇</button>
       </div>
 
+      <!-- Volume Control -->
+      <input
+        type="range"
+        id="volumeControl"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+      />
+
       <!-- Song Title -->
-      <div class="song-title">Song Title</div>
+      <div class="song-title"><span>Song Title</span></div>
+
+      <!-- Lyrics Toggle Button -->
+      <button id="lyricsButton">Mostrar Letras</button>
+
+      <!-- Audio Element -->
+      <audio
+        id="audioPlayer"
+        src="assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3"
+      ></audio>
     </div>
     <script src="main.js"></script>
   </body>
