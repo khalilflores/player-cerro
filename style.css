@@ -19,6 +19,7 @@ body {
   object-fit: contain; /* Scale image while preserving aspect ratio */
 }
 
+
 #lyricsContainer {
   position: absolute;
   top: 0;
@@ -31,22 +32,43 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  max-height: 100%; /* Ensure it doesn't exceed container height */
 }
 
 #lyricsText {
   padding: 20px;
   font-size: 1.2em;
-  max-height: 100%; /* Ensure it doesn't exceed container height */
-  overflow-y: auto; /* Add vertical scrollbar when needed */
   box-sizing: border-box; /* Include padding in height calculation */
   /* Improve scrollbar appearance (optional, browser-dependent) */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #888 #333; /* Firefox: thumb track */
 }
 
-/* Webkit scrollbar styling (Chrome, Safari, Edge) */
-#lyricsText::-webkit-scrollbar {
+#lyricsContainer p {
+  margin-bottom: 1em; /* Add spacing between paragraphs */
+  overflow-y: scroll; /* Enable vertical scrolling for paragraphs */
+  max-height: 5em; /* Limit paragraph height to show scrollbar */
+  padding-right: 5px; /* Make space for the scrollbar */
+}
+
+/* Retro Scrollbar Styling */
+#lyricsContainer p::-webkit-scrollbar {
   width: 8px;
+}
+
+#lyricsContainer p::-webkit-scrollbar-track {
+  background-color: #333;
+  border: 1px solid #000;
+}
+
+#lyricsContainer p::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+#lyricsContainer p::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 #lyricsText::-webkit-scrollbar-track {
