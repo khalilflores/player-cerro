@@ -8,29 +8,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const volumeControl = document.getElementById("volumeControl");
   const lyricsButton = document.getElementById("lyricsButton");
   const lyricsContainer = document.getElementById("lyricsContainer");
+  const lyricsTextElement = document.getElementById("lyricsText"); // Get the lyrics text element
   const sceneImage = document.querySelector(".scene-container img"); // Get the image element
 
   const songs = [
-    { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", scene: "assets/scenes/cerro/cerro.gif" },
-    { title: "Milagro de satan Teresa", artist: "Tao Tormenta & Ahau Talam feat. Martin Corona", src: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.mp3", scene: "assets/scenes/satan_teresa/satan_teresa.gif" },
-    { title: "El Payaso Triste", artist: "Tao Tormenta feat. Hamura Beatsss", src: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.mp3", scene: "assets/scenes/payaso_triste/payaso_triste.gif" },
+    { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", srt: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.srt", scene: "assets/scenes/cerro/cerro.gif" },
+    { title: "Milagro de satan Teresa", artist: "Tao Tormenta & Ahau Talam feat. Martin Corona", src: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.mp3", srt: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.srt", scene: "assets/scenes/satan_teresa/satan_teresa.gif" },
+    { title: "El Payaso Triste", artist: "Tao Tormenta feat. Hamura Beatsss", src: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.mp3", srt: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.srt", scene: "assets/scenes/payaso_triste/payaso_triste.gif" },
   ];
   let currentSongIndex = 0;
   let isMuted = false;
+  let currentLyrics = []; // To store parsed lyrics for the current song
+  let currentLyricIndex = -1; // To track the currently displayed lyric
 
-  function loadSong(songIndex) {
+  // --- SRT Parsing Function ---
+  function parseSRT(srtContent) {
+    const lines = srtContent.trim().split(/\r?\n\r?\n/);
+    const lyrics = [];
+    const timeFormat = /(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})/;
+
+    lines.forEach(line => {
+      const parts = line.split(/\r?\n/);
+      if (parts.length >= 3) {
+        const timeMatch = parts[1].match(timeFormat);
+        if (timeMatch) {
+          const startTime =
+            parseInt(timeMatch[1]) * 3600 +
+            parseInt(timeMatch[2]) * 60 +
+            parseInt(timeMatch[3]) +
+            parseInt(timeMatch[4]) / 1000;
+          const endTime =
+            parseInt(timeMatch[5]) * 3600 +
+            parseInt(timeMatch[6]) * 60 +
+            parseInt(timeMatch[7]) +
+            parseInt(timeMatch[8]) / 1000;
+          const text = parts.slice(2).join("\n").trim();
+          lyrics.push({ startTime, endTime, text });
+        }
+      }
+    });
+    return lyrics;
+  }
+
+  // --- Load Song and Lyrics ---
+  async function loadSong(songIndex) {
     const song = songs[songIndex];
     audioPlayer.src = song.src;
-    songTitleElement.textContent = `${song.title} - ${song.artist}`; // Set title and artist
-    sceneImage.src = song.scene; // Update scene image
-    sceneImage.alt = song.title; // Update alt text
-    // Reset play button icon if needed when loading a new song
-    if (audioPlayer.paused) {
-        playButton.textContent = "▶️";
+    songTitleElement.textContent = `${song.title} - ${song.artist}`;
+    sceneImage.src = song.scene;
+    sceneImage.alt = song.title;
+    currentLyrics = []; // Reset lyrics
+    currentLyricIndex = -1; // Reset lyric index
+    lyricsTextElement.textContent = ""; // Clear lyrics display
+
+    // Fetch and parse SRT file
+    if (song.srt) {
+      try {
+        const response = await fetch(song.srt);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const srtContent = await response.text();
+        currentLyrics = parseSRT(srtContent);
+      } catch (error) {
+        console.error("Error loading or parsing SRT file:", error);
+        lyricsTextElement.textContent = "Lyrics not available.";
+      }
     } else {
-        // If it was playing, play the new song immediately
-        audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-        playButton.textContent = "⏸️";
+        lyricsTextElement.textContent = "Lyrics not available.";
+    }
+
+    // Reset play button icon
+    if (audioPlayer.paused) {
+      playButton.textContent = "▶️";
+    } else {
+      // If it was playing, play the new song immediately
+      audioPlayer.play().catch(e => console.error("Error playing audio:", e));
+      playButton.textContent = "⏸️";
     }
   }
 
@@ -96,5 +150,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   audioPlayer.addEventListener("pause", () => {
     playButton.textContent = "▶️";
+  });
+
+  // --- Lyrics Synchronization ---
+  audioPlayer.addEventListener("timeupdate", () => {
+    if (!currentLyrics.length) return; // No lyrics loaded
+
+    const currentTime = audioPlayer.currentTime;
+    let foundLyric = false;
+
+    for (let i = 0; i < currentLyrics.length; i++) {
+      const lyric = currentLyrics[i];
+      if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
+        if (i !== currentLyricIndex) {
+          lyricsTextElement.textContent = lyric.text;
+          currentLyricIndex = i;
+        }
+        foundLyric = true;
+        break; // Found the current lyric, exit loop
+      }
+    }
+
+    // If no lyric matches the current time (e.g., silence), clear the display
+    // only if a lyric was previously displayed
+    if (!foundLyric && currentLyricIndex !== -1) {
+        lyricsTextElement.textContent = "";
+        currentLyricIndex = -1; // Reset index since nothing is displayed
+    }
   });
 }); // End of DOMContentLoaded listener

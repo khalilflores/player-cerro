@@ -46,30 +46,10 @@ body {
 
 #lyricsContainer p {
   margin-bottom: 1em; /* Add spacing between paragraphs */
-  overflow-y: scroll; /* Enable vertical scrolling for paragraphs */
-  max-height: 5em; /* Limit paragraph height to show scrollbar */
-  padding-right: 5px; /* Make space for the scrollbar */
+  /* Scrollbar removed */
 }
 
-/* Retro Scrollbar Styling */
-#lyricsContainer p::-webkit-scrollbar {
-  width: 8px;
-}
-
-#lyricsContainer p::-webkit-scrollbar-track {
-  background-color: #333;
-  border: 1px solid #000;
-}
-
-#lyricsContainer p::-webkit-scrollbar-thumb {
-  background-color: #444;
-  border: 2px solid #000;
-  border-radius: 4px;
-}
-
-#lyricsContainer p::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
+/* Scrollbar styling removed */
 
 #lyricsText::-webkit-scrollbar-track {
   background: #333;
