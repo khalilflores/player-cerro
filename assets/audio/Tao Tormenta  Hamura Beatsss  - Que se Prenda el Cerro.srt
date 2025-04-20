@@ -1,6 +1,6 @@
 1
 00:00:00,000 --> 00:00:04,360
-Espera, son pausa
+Espera, pon pausa
 
 2
 00:00:30,000 --> 00:00:58,740
@@ -8,11 +8,11 @@ Hay muchos iguales
 
 3
 00:00:58,740 --> 00:00:59,980
-Y muchos iguales
+hay muchos iguales
 
 4
 00:00:59,979 --> 00:01:04,039
-Pagando en el mismo desierto
+Vagando en el mismo desierto
 
 5
 00:01:04,039 --> 00:01:10,459
@@ -28,7 +28,7 @@ Hay muchos iguales
 
 8
 00:01:36,880 --> 00:01:39,480
-Pagando en el mismo desierto
+Vagando en el mismo desierto
 
 9
 00:01:39,480 --> 00:01:43,400
@@ -72,19 +72,19 @@ Hasta que salgan chispas
 
 19
 00:02:14,060 --> 00:02:17,980
-Whiskey, peyote y deep cow
+Whiskey, peyote y deep house
 
 20
 00:02:18,500 --> 00:02:24,980
-Whiskey, peyote y deep cow
+Whiskey, peyote y deep house
 
 21
 00:02:29,979 --> 00:02:34,479
-Whiskey, peyote y deep cow
+Whiskey, peyote y deep house
 
 22
 00:02:34,479 --> 00:02:41,099
-Whiskey, peyote y deep cow
+Whiskey, peyote y deep house
 
 23
 00:02:41,099 --> 00:02:44,359
