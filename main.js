@@ -91,10 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function playPauseSong() {
     if (audioPlayer.paused) {
       audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-      playButton.textContent = "⏸️";
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
     } else {
       audioPlayer.pause();
-      playButton.textContent = "▶️";
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
     }
   }
 
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleMute() {
     isMuted = !isMuted;
     audioPlayer.muted = isMuted;
-    muteButton.textContent = isMuted ? " Muted" : "🔇"; // Update icon/text
+    muteButton.innerHTML = isMuted ? '<span class="pixelarticons pixelarticons--volume-x"></span>' : '<span class="pixelarticons pixelarticons--volume-3"></span>';
   }
 
   // Event Listeners for Audio Controls
@@ -164,7 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentTime >= lyric.startTime && currentTime <= lyric.endTime) {
         if (i !== currentLyricIndex) {
           lyricsTextElement.textContent = lyric.text;
+          lyricsTextElement.textContent = lyric.text;
           currentLyricIndex = i;
+          console.log("Lyric updated:", lyric.text); // Add this line
         }
         foundLyric = true;
         break; // Found the current lyric, exit loop

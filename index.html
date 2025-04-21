@@ -5,13 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro Visual Player</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--android.css" />
+    <link
+      rel="stylesheet"
+      href="assets/pixel-ui/pixelarticons--battery-full.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/pixel-ui/pixelarticons--bluetooth.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/pixel-ui/pixelarticons--cellular-signal-3.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/pixel-ui/pixelarticons--mood-happy.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/pixel-ui/pixelarticons--moon-stars.css"
+    />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--music.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--next.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--play.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--prev.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-3.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-x.css" />
   </head>
   <body>
     <div class="player-container">
       <!-- Top Bar -->
       <div class="top-bar">
-        <div class="icon battery">🔋</div>
-        <div class="icon wifi">📶</div>
+        <div class="icon battery">
+          <span class="pixelarticons pixelarticons--battery-full"></span>
+        </div>
+        <div class="icon wifi">
+          <span class="pixelarticons pixelarticons--cellular-signal-3"></span>
+        </div>
+        <span
+          class="pixelarticons pixelarticons--music"
+          style="position: absolute; right: 10px; top: 5px"
+        ></span>
       </div>
 
       <!-- CRT Screen -->
@@ -33,10 +68,18 @@
 
       <!-- Audio Controls -->
       <div class="audio-controls">
-        <button class="control-button prev">⏪</button>
-        <button class="control-button play">▶️</button>
-        <button class="control-button next">⏩</button>
-        <button class="control-button mute">🔇</button>
+        <button class="control-button prev">
+          <span class="pixelarticons pixelarticons--prev"></span>
+        </button>
+        <button class="control-button play">
+          <span class="pixelarticons pixelarticons--play"></span>
+        </button>
+        <button class="control-button next">
+          <span class="pixelarticons pixelarticons--next"></span>
+        </button>
+        <button class="control-button mute">
+          <span class="pixelarticons pixelarticons--volume-x"></span>
+        </button>
       </div>
 
       <!-- Volume Control -->
