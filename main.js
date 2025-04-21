@@ -80,21 +80,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Reset play button icon
     if (audioPlayer.paused) {
-      playButton.textContent = "▶️";
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
     } else {
       // If it was playing, play the new song immediately
       audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-      playButton.textContent = "⏸️";
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
+    }
+
+    // Set the correct icon based on the initial paused state
+    if (audioPlayer.paused) {
+        playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
+    } else {
+        playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
     }
   }
 
   function playPauseSong() {
     if (audioPlayer.paused) {
       audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
     } else {
       audioPlayer.pause();
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
+      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
+    }
+
+    // Ensure the icon reflects the *actual* state after the play/pause action
+    if (audioPlayer.paused) {
+        playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
+    } else {
+        playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
     }
   }
 
@@ -146,10 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update play/pause button state if playback state changes externally
   audioPlayer.addEventListener('play', () => {
-    playButton.textContent = "⏸️";
+    playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
   });
   audioPlayer.addEventListener("pause", () => {
-    playButton.textContent = "▶️";
+    playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
   });
 
   // --- Lyrics Synchronization ---
