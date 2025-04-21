@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const songs = [
     { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", srt: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.srt", scene: "assets/scenes/cerro/cerro.gif" },
-    { title: "Milagro de satan Teresa", artist: "Tao Tormenta & Ahau Talam feat. Martin Corona", src: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.mp3", srt: "assets/audio/Tao Tormenta Ahau Talam -  Milagro de satan Teresa feat Martin Corona.srt", scene: "assets/scenes/satan_teresa/satan_teresa.gif" },
-    { title: "El Payaso Triste", artist: "Tao Tormenta feat. Hamura Beatsss", src: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.mp3", srt: "assets/audio/Tao Tormenta feaat.  Hamura Beatsss - El Payaso Triste.srt", scene: "assets/scenes/payaso_triste/payaso_triste.gif" },
+    { title: "Milagro de Satan Teresa", artist: "Tao Tormenta & Hamura Beatsss feat. Martin Corona", src: "assets/audio/Tao Tormenta Hamura Beatsss -  Milagro de Satan Teresa feat Martin Corona.mp3", srt: "assets/audio/Tao Tormenta Hamura Beatsss -  Milagro de Satan Teresa feat Martin Corona.srt", scene: "assets/scenes/satan_teresa/satan_teresa.gif" },
+    { title: "El Payaso Triste", artist: "Tao Tormenta feat. Hamura Beatsss", src: "assets/audio/Tao Tormenta feat.  Hamura Beatsss - El Payaso Triste.mp3", srt: "assets/audio/Tao Tormenta feat.  Hamura Beatsss - El Payaso Triste.srt", scene: "assets/scenes/payaso_triste/payaso_triste.gif" },
   ];
   let currentSongIndex = 0;
   let isMuted = false;
