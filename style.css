@@ -128,21 +128,36 @@ body {
     text-align: center;
 }
 
+/* Adapted Comic Style for Control Buttons */
 .control-button {
-    font-family: inherit;
-    font-size: 1em;
-    background-color: #2a4257;
-    color: #eee;
-    border: 2px solid #000;
-    padding: 8px 8px;
-    margin: 0 4px;
-    cursor: pointer;
-    border-radius: 4px;
+  display: inline-block;
+  padding: 10px 15px; /* Adjusted comic padding */
+  font-size: 1em; /* Kept original size */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #eee; /* Player text color */
+  background-color: #2a4257; /* Player button background */
+  border: 2px solid #000;
+  border-radius: 10px; /* Comic radius */
+  box-shadow: 5px 5px 0px #000; /* Comic shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit; /* Keep player font */
+  margin: 0 4px; /* Keep original margin */
+}
+
+.control-button:hover {
+  background-color: #eee; /* Player text color */
+  color: #2a4257; /* Player button background */
+  border: 2px solid #2a4257;
+  box-shadow: 5px 5px 0px #2a4257;
 }
 
 .control-button:active {
-    box-shadow: inset 2px 2px 0px #000;
-    transform: translate(1px, 1px);
+  background-color: #fcf414; /* Comic active color */
+  box-shadow: none;
+  transform: translateY(4px); /* Comic active transform */
 }
 
 /* Volume Control */
@@ -178,24 +193,39 @@ body {
     animation-delay: 1s;
 }
 
-/* Lyrics Button */
+/* Adapted Comic Style for Lyrics Button */
 #lyricsButton {
-    font-family: inherit;
-    font-size: 0.8em; /* Slightly smaller */
-    background-color: #2a4257;
-    color: #eee;
-    border: 2px solid #000;
-    padding: 6px 10px;
-    margin: 5px auto 10px auto; /* Center and add margin */
-    cursor: pointer;
-    border-radius: 4px;
-    display: block; /* Make it a block element */
+  padding: 10px 20px; /* Comic padding */
+  font-size: 0.9em; /* Adjusted size */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #eee; /* Player text color */
+  background-color: #2a4257; /* Player button background */
+  border: 2px solid #000;
+  border-radius: 10px; /* Comic radius */
+  box-shadow: 5px 5px 0px #000; /* Comic shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit; /* Keep player font */
+  /* Specific layout */
+  display: block;
+  margin: 10px auto; /* Center and add margin */
+}
+
+#lyricsButton:hover {
+  background-color: #eee; /* Player text color */
+  color: #2a4257; /* Player button background */
+  border: 2px solid #2a4257;
+  box-shadow: 5px 5px 0px #2a4257;
 }
 
 #lyricsButton:active {
-    box-shadow: inset 2px 2px 0px #000;
-    transform: translate(1px, 1px);
+  background-color: #fcf414; /* Comic active color */
+  box-shadow: none;
+  transform: translateY(4px); /* Comic active transform */
 }
+
 span.pixelarticons.pixelarticons--music {
     left: 4px;
     color:green
