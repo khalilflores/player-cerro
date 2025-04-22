@@ -66,10 +66,10 @@ body {
 
 .player-container {
     width: 340px; /* Example width, adjust as needed */
-    height: 420px; /* Example height, adjust as needed */
+    height: 460px; /* Example height, adjust as needed */
     background-color: #6393c0; /* Player background */
     border: 4px solid #6393c0; /* Hard border */
-    box-shadow: 8px 8px 0px #000; /* Shadow for a 3D effect */
+    box-shadow: 8px 8px 0px #131e27; /* Shadow for a 3D effect */
     border-radius: 8px; /* Rounded corners */
     overflow: hidden; /* Hide content that overflows */
     position: relative; /* For scanlines */
