@@ -6,6 +6,16 @@
     image-rendering: crisp-edges; /* Fallback for browsers that don't support pixelated */
 }
 
+/* Define grid animation */
+@keyframes grid {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 body {
     background-color: #333333; /* Dark background */
     font-family: 'Press Start 2P', cursive;
@@ -83,6 +93,8 @@ body {
 
 /* Top Bar */
 .top-bar {
+    position: relative; /* Ensure stacking context */
+    z-index: 1; /* Place above grid */
     background-color: #2a4257;
     padding: 4px 8px; /* Adjusted padding */
     display: flex; /* Use flexbox for alignment */
@@ -130,10 +142,12 @@ body {
 
 /* CRT Screen */
 .crt-screen {
+    position: relative; /* Ensure stacking context */
+    z-index: 1; /* Place above grid */
     width: 100%;
     height: 180px; /* Adjust height as needed */
     background-color: #000;
-    position: relative;
+    /* position: relative; */ /* Already relative */
     overflow: hidden;
 }
 
@@ -165,6 +179,8 @@ body {
 
 /* Audio Controls */
 .audio-controls {
+    position: relative; /* Ensure stacking context */
+    z-index: 1; /* Place above grid */
     padding: 8px;
     text-align: center;
 }
@@ -203,6 +219,8 @@ body {
 
 /* Volume Control */
 #volumeControl {
+    position: relative; /* Ensure stacking context */
+    z-index: 1; /* Place above grid */
     display: block; /* Make it a block element */
     width: 80%; /* Adjust width as needed */
     margin: 10px auto; /* Center it and add some vertical space */
@@ -217,6 +235,8 @@ body {
 
 /* Song Title Container */
 .song-title {
+    position: relative; /* Ensure stacking context */
+    z-index: 1; /* Place above grid */
     padding: 8px;
     font-size: 1em;
     line-height: 1.3em;
@@ -236,6 +256,8 @@ body {
 
 /* Adapted Comic Style for Lyrics Button */
 #lyricsButton {
+  position: relative; /* Ensure stacking context */
+  z-index: 1; /* Place above grid */
   padding: 10px 20px; /* Comic padding */
   font-size: 0.9em; /* Adjusted size */
   font-weight: bold;
@@ -334,6 +356,8 @@ span.pixelarticons.pixelarticons--music {
 
 /* Logo Styles */
 .logos-container {
+  position: relative; /* Ensure stacking context */
+  z-index: 1; /* Place above grid */
   display: flex;
   justify-content: space-between; /* Distribute logos to edges */
   align-items: center;
@@ -357,4 +381,52 @@ span.pixelarticons.pixelarticons--music {
   max-width: 80%; /* Ensure logo fits inside the circle */
   max-height: 80%;
   display: block; /* Remove extra space below image */
+}
+
+/* Retro Grid Styles */
+#retro-grid-container {
+  --grid-angle: 65deg;
+  --cell-size: 60px;
+  --opacity: 0.8; /* Increased opacity for testing */
+  --line-color: rgba(255, 255, 255, 0.4); /* Increased line opacity slightly */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  perspective: 200px;
+  pointer-events: none; /* Allow interaction with elements below */
+  opacity: var(--opacity);
+  /* z-index: 0; */ /* Removed z-index, rely on default stacking */
+}
+
+.retro-grid-rotated-container {
+  position: absolute;
+  inset: 0; /* shorthand for top, right, bottom, left = 0 */
+  transform: rotateX(var(--grid-angle));
+}
+
+.retro-grid-lines {
+  position: absolute;
+  /* inset: 0% 0px; */ /* Seems redundant with top/left */
+  top: 0;
+  left: 0;
+  width: 600vw;
+  height: 300vh;
+  margin-left: -200%;
+  transform-origin: 100% 0 0;
+  background-image: linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+  background-repeat: repeat;
+  background-size: var(--cell-size) var(--cell-size);
+  animation: grid 15s linear infinite; /* Use existing animation */
+}
+
+.retro-grid-fade {
+  position: absolute;
+  inset: 0;
+  /* Fade from player background color to transparent */
+  background: linear-gradient(to top, #6393c0, transparent 90%);
 }

@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Retro Visual Player</title>
+    <title>Que se prenda el cerro | Un EP onírico</title>
+    <meta
+      name="description"
+      content="Reproductor musical para escuchar el EP Que se prenda el cerro."
+    />
+    <meta
+      name="keywords"
+      content="que se prenda el cerro, musica, retroplayer, EP"
+    />
+    <meta property="og:title" content="Que se prenda el cerro" />
+    <meta
+      property="og:description"
+      content="Reproductor musical para escuchar el EP Que se prenda el cerro."
+    />
+    <meta
+      property="og:image"
+      content="https://gift.ahautalam.com/que se prenda el cerro.png"
+    />
+    <meta property="og:url" content="https://gift.ahautalam.com" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--android.css" />
     <link
@@ -46,6 +65,8 @@
   </head>
   <body>
     <div class="player-container">
+      <div id="retro-grid-container"></div>
+      <!-- Added grid container -->
       <!-- Top Bar -->
       <div class="top-bar">
         <!-- Left Icons -->
@@ -104,6 +125,7 @@
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
+        <!-- Removed incorrect RetroGrid usage -->
       </div>
 
       <!-- Audio Controls -->
@@ -159,5 +181,7 @@
       ></audio>
     </div>
     <script src="main.js"></script>
+    <script src="retro-grid-plain.js" defer></script>
+    <!-- Added plain JS script -->
   </body>
 </html>
