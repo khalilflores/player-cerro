@@ -55,32 +55,7 @@ body {
   border: 4px solid rgb(0, 0, 0);
 }
 
-#lyricsText {
 
-  padding: 20px;
-  font-size: 1.2em;
-  box-sizing: border-box; /* Include padding in height calculation */
-  /* Improve scrollbar appearance (optional, browser-dependent) */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #888 #333; /* Firefox: thumb track */
-}
-
-#lyricsContainer p {
-  margin-bottom: 1em; /* Add spacing between paragraphs */
-  /* Scrollbar removed */
-}
-
-/* Scrollbar styling removed */
-
-#lyricsText::-webkit-scrollbar-track {
-  background: #333;
-}
-
-#lyricsText::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 4px;
-  border: 2px solid #333;
-}
 
 .player-container {
     width: 330px; /* Example width, adjust as needed */
@@ -265,6 +240,8 @@ body {
 
 /* Song Title Container */
 .song-title {
+  color: #2a4257; /* Player text color */
+  text-shadow: 0 1px 0 #e6d6a1; /* Shadow for depth */
     position: relative; /* Ensure stacking context */
     z-index: 1; /* Place above grid */
     padding: 8px;
@@ -343,8 +320,8 @@ span.pixelarticons.pixelarticons--music {
     width: 80%;
     max-width: 300px; /* Limit max width */
     background-color: #2a4257; /* Match player theme */
-    border: 4px solid #000;
-    box-shadow: 8px 8px 0px #131e27;
+    border: 4px solid #151f29;
+    box-shadow: 3px 3px 0px #3a2e5c;
     border-radius: 8px;
     padding: 20px;
     z-index: 100; /* Ensure it's above other elements */
