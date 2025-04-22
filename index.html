@@ -50,9 +50,10 @@
       <div class="top-bar">
         <!-- Left Icons -->
         <div class="top-bar-left">
-          <a href="http://www.ahautalam.com" target="_blank" class="icon-link">
-            <span class="pixelarticons pixelarticons--alert"></span>
-          </a>
+          <span
+            id="alertIcon"
+            class="pixelarticons pixelarticons--alert icon-link"
+          ></span>
           <a href="http://www.ahautalam.com" target="_blank" class="icon-link">
             <span class="pixelarticons pixelarticons--close"></span>
           </a>
@@ -71,6 +72,21 @@
           </div>
           <span class="pixelarticons pixelarticons--music"></span>
         </div>
+      </div>
+
+      <!-- Album Info Popup (Initially Hidden) -->
+      <div id="albumInfo" class="album-info-popup" style="display: none">
+        <button id="closeAlbumInfo" class="close-button">
+          <span class="pixelarticons pixelarticons--close"></span>
+        </button>
+        <h3>Que se Prenda el Cerro</h3>
+        <p>
+          Un EP explosivo que fusiona electrónica experimental, psicodelia
+          urbana y narrativas poéticas. Cada canción es un viaje visual y
+          emocional por paisajes oníricos, desiertos mentales y rincones oscuros
+          del alma. Sonidos que arden, voces que resisten y visiones que
+          estallan como cerros en llamas.
+        </p>
       </div>
 
       <!-- CRT Screen -->
@@ -121,6 +137,20 @@
 
       <!-- Lyrics Toggle Button -->
       <button id="lyricsButton">Show Lyrics</button>
+
+      <!-- Logos -->
+      <div class="logos-container">
+        <div class="logo-circle">
+          <img src="logo_ahau.png" alt="Ahau Talam Logo" class="logo-image" />
+        </div>
+        <div class="logo-circle">
+          <img
+            src="logo_prenda.png"
+            alt="Que se Prenda el Cerro Logo"
+            class="logo-image"
+          />
+        </div>
+      </div>
 
       <!-- Audio Element -->
       <audio

@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const lyricsContainer = document.getElementById("lyricsContainer");
   const lyricsTextElement = document.getElementById("lyricsText"); // Get the lyrics text element
   const sceneImage = document.querySelector(".scene-container img"); // Get the image element
+  const alertIcon = document.getElementById("alertIcon"); // Get the alert icon
+  const albumInfo = document.getElementById("albumInfo"); // Get the album info popup
+  const closeAlbumInfo = document.getElementById("closeAlbumInfo"); // Get the close button for album info
 
   const songs = [
     { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", srt: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.srt", scene: "assets/scenes/cerro/cerro.gif" },
@@ -194,4 +197,14 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLyricIndex = -1; // Reset index since nothing is displayed
     }
   });
+
+  // --- Album Info Popup Logic ---
+  alertIcon.addEventListener("click", () => {
+    albumInfo.style.display = "block";
+  });
+
+  closeAlbumInfo.addEventListener("click", () => {
+    albumInfo.style.display = "none";
+  });
+
 }); // End of DOMContentLoaded listener
