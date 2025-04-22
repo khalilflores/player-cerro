@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Ensure pixel art icons render sharply */
+.pixelarticons {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges; /* Fallback for browsers that don't support pixelated */
+}
+
 body {
     background-color: #333333; /* Dark background */
     font-family: 'Press Start 2P', cursive;
@@ -78,13 +84,47 @@ body {
 /* Top Bar */
 .top-bar {
     background-color: #2a4257;
-    padding: 4px;
-    text-align: right;
+    padding: 4px 8px; /* Adjusted padding */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Push left and right groups apart */
+    align-items: center; /* Center items vertically */
     font-size: 0.8em;
+    height: 20px; /* Give it a fixed height */
+}
+
+/* Icon containers within the top bar */
+.top-bar-left,
+.top-bar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Individual icon spacing within right group */
+.top-bar-right .icon,
+.top-bar-right .pixelarticons--music {
+    margin-left: 8px; /* Add spacing between right-aligned icons */
 }
 
 .icon {
-    margin-left: 8px;
+    margin-right: 8px; /* Use margin-right for spacing */
+}
+
+/* Style for the new icon links */
+.icon-link {
+    margin-right: 8px; /* Spacing between icons */
+    color: #eee; /* Initial icon color */
+    text-decoration: none;
+    display: inline-flex; /* Align icon vertically */
+    align-items: center;
+}
+
+.icon-link .pixelarticons {
+    transition: color 0.2s ease-in-out; /* Smooth transition for hover */
+    color: green; /* Match existing icon color */
+}
+
+.icon-link:hover .pixelarticons {
+    color: #fcf414; /* Yellow color on hover */
 }
 
 /* CRT Screen */
@@ -231,9 +271,12 @@ span.pixelarticons.pixelarticons--music {
     color:green
 }
 span.pixelarticons.pixelarticons--battery-full {
-    color:green
+    color: green;
 }
 span.pixelarticons.pixelarticons--cellular-signal-3 {
-    left: 4px;
-    color:green
+    color: green;
+}
+/* Color for the music icon (positioning handled by flexbox now) */
+span.pixelarticons.pixelarticons--music {
+    color: green;
 }

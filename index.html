@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--prev.css" />
     <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-3.css" />
     <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-x.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--alert.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--close.css" />
+    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--heart.css" />
 
     <!-- Manifest and Icons -->
     <link rel="manifest" href="site.webmanifest" />
@@ -45,16 +48,29 @@
     <div class="player-container">
       <!-- Top Bar -->
       <div class="top-bar">
-        <div class="icon battery">
-          <span class="pixelarticons pixelarticons--battery-full"></span>
+        <!-- Left Icons -->
+        <div class="top-bar-left">
+          <a href="http://www.ahautalam.com" target="_blank" class="icon-link">
+            <span class="pixelarticons pixelarticons--alert"></span>
+          </a>
+          <a href="http://www.ahautalam.com" target="_blank" class="icon-link">
+            <span class="pixelarticons pixelarticons--close"></span>
+          </a>
+          <a href="http://www.ahautalam.com" target="_blank" class="icon-link">
+            <span class="pixelarticons pixelarticons--heart"></span>
+          </a>
         </div>
-        <div class="icon wifi">
-          <span class="pixelarticons pixelarticons--cellular-signal-3"></span>
+
+        <!-- Right Icons -->
+        <div class="top-bar-right">
+          <div class="icon battery">
+            <span class="pixelarticons pixelarticons--battery-full"></span>
+          </div>
+          <div class="icon wifi">
+            <span class="pixelarticons pixelarticons--cellular-signal-3"></span>
+          </div>
+          <span class="pixelarticons pixelarticons--music"></span>
         </div>
-        <span
-          class="pixelarticons pixelarticons--music"
-          style="position: absolute; right: 10px; top: 5px"
-        ></span>
       </div>
 
       <!-- CRT Screen -->
