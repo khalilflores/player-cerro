@@ -1,11 +1,11 @@
 
 # 🔥 Que se Prenda el Cerro
 
-[![Built with Visual Studio Code](https://img.shields.io/badge/Built%20with-VSCode-blue?logo=visualstudiocode&style=flat-square)](https://code.visualstudio.com/) 
-[![Tech: HTML](https://img.shields.io/badge/Tech-HTML5-orange?logo=html5&style=flat-square)](#)
-[![Tech: CSS](https://img.shields.io/badge/Tech-CSS3-blue?logo=css3&style=flat-square)](#)
-[![Tech: JavaScript](https://img.shields.io/badge/Tech-JavaScript-yellow?logo=javascript&style=flat-square)](#)
-[![AI-assisted](https://img.shields.io/badge/AI-MCP%20%2B%20Gemini-purple?logo=google&style=flat-square)](#)
+[![Built with VS Code](https://img.shields.io/badge/Built%20with-VSCode-007ACC?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](#)
+[![AI Assisted](https://img.shields.io/badge/MCP%20%2B%20Gemini-AI-purple?style=flat-square&logo=google)](#)
 
 **Reproductor retro interactivo del EP “Que se Prenda el Cerro”**, desarrollado por la casa creativa [Ahau Talam](https://www.ahautalam.com).  
 Este proyecto fusiona música, visuales pixel art, y programación creativa como una forma única de **promocionar a los artistas independientes de nuestra comunidad**.
