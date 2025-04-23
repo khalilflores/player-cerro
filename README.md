@@ -62,7 +62,9 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 | Diseño         | Khalilflores                    |
 | Animaciones    | Khalilflores + Gemini AI        |
 | Desarrollo Web | Khalilflores (con ayuda de MCP) |
+| Voces          | Tao Tormenta                    |
 | Sonido & Beats | Hamura Beatsss                  |
+| Bajo  & Beats  | Martín Corona(Milagro de Satán) |
 | Producción     | Ahau Talam Studio               |
 
 ---
