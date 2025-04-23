@@ -1,11 +1,5 @@
 # 🔥 Que se Prenda el Cerro
 
-# README content with corrected GitHub-friendly badges and emojis for artists
-
-readme_content_fixed = """
-
-# 🔥 Que se Prenda el Cerro
-
 [![Built with VS Code](https://img.shields.io/badge/Built%20with-VSCode-007ACC?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](#)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](#)
