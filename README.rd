@@ -1,4 +1,11 @@
+
 # 🔥 Que se Prenda el Cerro
+
+[![Built with Visual Studio Code](https://img.shields.io/badge/Built%20with-VSCode-blue?logo=visualstudiocode&style=flat-square)](https://code.visualstudio.com/) 
+[![Tech: HTML](https://img.shields.io/badge/Tech-HTML5-orange?logo=html5&style=flat-square)](#)
+[![Tech: CSS](https://img.shields.io/badge/Tech-CSS3-blue?logo=css3&style=flat-square)](#)
+[![Tech: JavaScript](https://img.shields.io/badge/Tech-JavaScript-yellow?logo=javascript&style=flat-square)](#)
+[![AI-assisted](https://img.shields.io/badge/AI-MCP%20%2B%20Gemini-purple?logo=google&style=flat-square)](#)
 
 **Reproductor retro interactivo del EP “Que se Prenda el Cerro”**, desarrollado por la casa creativa [Ahau Talam](https://www.ahautalam.com).  
 Este proyecto fusiona música, visuales pixel art, y programación creativa como una forma única de **promocionar a los artistas independientes de nuestra comunidad**.
@@ -16,13 +23,10 @@ Este proyecto fusiona música, visuales pixel art, y programación creativa como
 
 ## 🖥️ Tecnologías Utilizadas
 
-El reproductor fue diseñado e implementado usando:
-
 - 💻 **Visual Studio Code**
 - 🤖 **MCP + Gemini (AI copilots)**
 - 🎨 **HTML5 + CSS3 (Pixel Art + Neobrutalismo)**
 - ⚙️ **JavaScript vanilla**
-- 💡 Integración de recursos gráficos retro de 16 bits
 
 ---
 
@@ -55,9 +59,9 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 
 | Área            | Responsable                    |
 |-----------------|--------------------------------|
-| Diseño          | Ahau Talam                     |
-| Animaciones     | Tao Tormenta + Gemini AI       |
-| Desarrollo Web  | Gibrán Jalil (con ayuda de MCP)|
+| Diseño          | Khalilflores                   |
+| Animaciones     | Khalilflores + Gemini AI       |
+| Desarrollo Web  | Khalilflores (con ayuda de MCP)|
 | Sonido & Beats  | Hamura Beatsss                 |
 | Producción      | Ahau Talam Studio              |
 
@@ -70,7 +74,7 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 
 ---
 
-## 🚀 SEO Tags (para incluir en tu `index.html`)
+## 🚀 SEO Tags sugeridos
 
 ```html
 <meta name="description" content="Reproductor retro inspirado en Game Boy para el EP Que se Prenda el Cerro. Proyecto visual y musical creado por Ahau Talam." />
@@ -78,7 +82,8 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 <meta property="og:title" content="Que se Prenda el Cerro – EP Interactivo" />
 <meta property="og:description" content="Un EP visual y musical hecho por Ahau Talam. Dale play al fuego del cerro." />
 <meta property="og:image" content="https://gift.ahautalam.com/que-se-prenda-el-cerro.png" />
+```
 
 ---
 
-
+**“El fuego ya empezó. Que se prenda el cerro.”** 🔥
