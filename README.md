@@ -1,3 +1,5 @@
+# 🔥 Que se Prenda el Cerro
+
 # README content with corrected GitHub-friendly badges and emojis for artists
 
 readme_content_fixed = """
@@ -63,9 +65,9 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 
 | Área           | Responsable                     |
 | -------------- | ------------------------------- |
-| Diseño         | Ahau Talam                      |
-| Animaciones    | Tao Tormenta + Gemini AI        |
-| Desarrollo Web | Gibrán Jalil (con ayuda de MCP) |
+| Diseño         | Khalilflores                    |
+| Animaciones    | Khalilflores + Gemini AI        |
+| Desarrollo Web | Khalilflores (con ayuda de MCP) |
 | Sonido & Beats | Hamura Beatsss                  |
 | Producción     | Ahau Talam Studio               |
 
@@ -98,5 +100,8 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
   property="og:image"
   content="https://gift.ahautalam.com/que-se-prenda-el-cerro.png"
 />
-“El fuego ya empezó. Que se prenda el cerro.” 🔥 """
 ```
+
+---
+
+**“El fuego ya empezó. Que se prenda el cerro.”** 🔥
