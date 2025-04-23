@@ -24,7 +24,7 @@ Este proyecto fusiona música, visuales pixel art, y programación creativa como
 ## 🖥️ Tecnologías Utilizadas
 
 - 💻 **Visual Studio Code**
-- 🤖 **MCP + Gemini (AI copilots)**
+- 🤖 **Chat GPT + MCP + Gemini (AI copilots)**
 - 🎨 **HTML5 + CSS3 (Pixel Art + Neobrutalismo)**
 - ⚙️ **JavaScript vanilla**
 
