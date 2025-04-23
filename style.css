@@ -59,11 +59,11 @@ body {
 
 .player-container {
     width: 330px; /* Example width, adjust as needed */
-    height: 506px; /* Example height, adjust as needed */
+    height: 512px; /* Example height, adjust as needed */
     background-color: #647a8f; /* Player background */
     border: 4px solid #45627c; /* Hard border */
     box-shadow: 8px 8px 0px #131e27; /* Shadow for a 3D effect */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 3px 3px 18px 9px; /* Rounded corners */
     overflow: hidden; /* Hide content that overflows */
     position: relative; /* For scanlines */
 }
@@ -310,6 +310,14 @@ span.pixelarticons.pixelarticons--cellular-signal-3 {
 span.pixelarticons.pixelarticons--music {
     color: green;
 }
+button#lyricsButton {
+  rotate: -15deg;
+  width: 20%;
+  padding: 8px;
+  right: -45px;
+  border: 1px solid #313b4b;
+  box-shadow: 2px 2px 0 #232a35;
+}
 
 /* Album Info Popup Styles */
 .album-info-popup {
@@ -506,3 +514,73 @@ span.pixelarticons.pixelarticons--music {
 }
 
 /* --- End Intro Animation Styles --- */
+.lyrics-label {
+  rotate: -15deg;
+  color: #e6d6a1; /* Player text color */
+  text-shadow: 0 1px 0 #2a4257; /* Shadow for depth */
+  font-size: 0.5em;
+  position: absolute;
+  top: 84%;
+  right: 28%;
+}
+
+
+/* Adapted Comic Style for Lyrics Button */
+#selectButton {
+  position: relative; /* Ensure stacking context */
+  z-index: 1; /* Place above grid */
+  padding: 10px 20px; /* Comic padding */
+  font-size: 0.9em; /* Adjusted size */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #eee; /* Player text color */
+  background-color: #2a4257; /* Player button background */
+  border: 2px solid #000;
+  border-radius: 10px; /* Comic radius */
+  box-shadow: 5px 5px 0px #000; /* Comic shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit; /* Keep player font */
+  /* Specific layout */
+  display: block;
+  margin: 10px auto; /* Center and add margin */
+}
+
+#selectButton:hover {
+  background-color: #eee; /* Player text color */
+  color: #2a4257; /* Player button background */
+  border: 2px solid #2a4257;
+  box-shadow: 5px 5px 0px #2a4257;
+}
+
+#selectButton:active {
+  background-color: #e6d6a1; /* Comic active color */
+  box-shadow: none;
+  transform: translateY(4px); /* Comic active transform */
+}
+button#select {
+  rotate: -15deg;
+  top: 41px;
+  right: -76px;
+  position: relative;
+  z-index: 2;
+  background-color: #2a4257;
+  width: 69px;
+  height: 22px;
+  border-radius: 12px;
+}
+.select-label {
+  color: #e6d6a1;
+  top: 7px;
+  position: relative;
+  rotate: -15deg;
+  right: -99px;
+  font-size: 0.5em;
+}
+  .ep-title {
+    color: #2a4257;
+    text-shadow: 0 1px 0 #e6d6a1;
+    position: absolute;
+    right: 27%;
+}
