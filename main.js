@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // --- Intro Animation Elements ---
   const introAnimation = document.getElementById("intro-animation");
   const introLogo = document.getElementById("intro-logo");
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const albumInfo = document.getElementById("albumInfo"); // Get the album info popup
   const closeAlbumInfo = document.getElementById("closeAlbumInfo"); // Get the close button for album info
   const bodyElement = document.body; // Get the body element
+  const autoplayToggle = document.getElementById("autoplayToggle"); // Get the autoplay toggle
 
   const songs = [
     { title: "Que se Prenda el Cerro", artist: "Tao Tormenta & Hamura Beatsss", src: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3", srt: "assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.srt", scene: "assets/scenes/cerro/cerro.gif", background: 'url("data:image/svg+xml,<svg id=\'patternId\' width=\'100%\' height=\'100%\' xmlns=\'http://www.w3.org/2000/svg\'><defs><pattern id=\'a\' patternUnits=\'userSpaceOnUse\' width=\'96\' height=\'144\' patternTransform=\'scale(2) rotate(0)\'><rect x=\'0\' y=\'0\' width=\'100%\' height=\'100%\' fill=\'%2336422cff\'/><path d=\'M0 0v4h4v4h4V4h4V0H0zm20 0v4h-4v4h-4v4H8v4H4v-4H0v12h4v4h4v-4h4v-4h4v-4h4v-4h4V8h4V4h4V0H20zm20 0v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4H8v4H4v-4H0v12h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h-4v4h-4v4h-4v4h-4v4h-4v4H8v4H4v4H0v12h4v-4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h12v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4V8h4V4h4V0H40zm16 0v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4V28h-4v-4h-4v-4h-4v-4h-4v-4h-4V8h-4V4h-4V0H56zm20 0v4h4v4h4v4h4v4h4v4h4V8h-4V4h-4V0H76zM52 8v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-8h-4v-4h-4v-4h-4v-4h-4v4h-4v4h-4v4h-4v4h4v4h4v-4h4v-4h4v8h-4v4h-4v4h-4v-4h-4v-4h-4v-4h-4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v4h4v4h4v4h4v4h4v4h4v8h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v8h-4v4h-4v4h-4v4h-4v4h-4v4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h4v-4h4v-4h4v-4h4v4h4v4h4v8h-4v-4h-4v-4h-4v4h-4v4h4v4h4v4h4v4h4v-4h4v-4h4v-4h4v-8h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h4v4h-4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-8h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4v-4h-4V8h-4zm40 40v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h4v4h4v4h4v4h4v4h4v4h4v4h4V88h-4v-4h-4v-4h-4v-4h-4v-4h4v-4h4v-4h4v-4h4V48h-4zM0 52v4h4v-4H0zm4 8v4H0v12h4v-4h8v4H8v4H4v4H0v12h4v-4h4v-4h4v-4h4v-4h4v-4h4v-4h-4v-4h-4v-4h-4v-4H4zm88 8v4h-4v4h4v4h4V68h-4zm0 40v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h-4v4h12v-4h4v-4h4v-4h4v-4h4v-4h4v-4h4v-12h-4zM4 120v4H0v12h4v-4h4v4h4v4h4v4h12v-4h-4v-4h-4v-4h-4v-4h-4v-4H8v-4H4zm88 8v4h-4v4h-4v4h-4v4h12v-4h4v-12h-4zM4 140v4h4v-4H4z\'  stroke-width=\'1\' stroke=\'none\' fill=\'%23e6d6a1ff\'/></pattern></defs><rect width=\'800%\' height=\'800%\' transform=\'translate(0,0)\' fill=\'url(%23a)\'/></svg>")' },
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   let currentSongIndex = 0;
   let isMuted = false;
+  let isAutoplayEnabled = false; // Variable to track autoplay state
   let currentLyrics = []; // To store parsed lyrics for the current song
   let currentLyricIndex = -1; // To track the currently displayed lyric
 
@@ -68,12 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
     songTitleElement.textContent = `${song.title} - ${song.artist}`;
     sceneImage.src = song.scene;
     sceneImage.alt = song.title;
-    bodyElement.style.backgroundImage = song.background; // Set body background
-    currentLyrics = []; // Reset lyrics
-    currentLyricIndex = -1; // Reset lyric index
-    lyricsTextElement.textContent = ""; // Clear lyrics display
+    bodyElement.style.backgroundImage = song.background;
+    currentLyrics = [];
+    currentLyricIndex = -1;
+    lyricsTextElement.textContent = "";
 
-    // Fetch and parse SRT file
     if (song.srt) {
       try {
         const response = await fetch(song.srt);
@@ -87,51 +88,48 @@ document.addEventListener("DOMContentLoaded", () => {
         lyricsTextElement.textContent = "Lyrics not available.";
       }
     } else {
-        lyricsTextElement.textContent = "Lyrics not available.";
+      lyricsTextElement.textContent = "Lyrics not available.";
     }
 
-    // Reset play button icon
-    if (audioPlayer.paused) {
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
-    } else {
-      // If it was playing, play the new song immediately
-      audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
-    }
-
-    // Set the correct icon based on the initial paused state
-    if (audioPlayer.paused) {
-        playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
-    } else {
-        playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
-    }
+    // After src change, player is usually paused. Set icon to play.
+    // Actual playback is handled by the calling function (playPauseSong, nextSong, prevSong).
+    playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
   }
 
   function playPauseSong() {
     if (audioPlayer.paused) {
       audioPlayer.play().catch(e => console.error("Error playing audio:", e));
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
     } else {
       audioPlayer.pause();
-      playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
     }
-
-    // Ensure the icon reflects the *actual* state after the play/pause action
-    if (audioPlayer.paused) {
-        playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
-    } else {
-        playButton.innerHTML = '<span class="pixelarticons pixelarticons--pause"></span>';
-    }
+    // Icon updates are handled by the 'play' and 'pause' event listeners on audioPlayer.
   }
 
-  function nextSong() {
+  async function nextSong() {
+    // Determine if the new song should play based on autoplay status or if manually skipped while playing
+    const playTheNewSong = isAutoplayEnabled || (!audioPlayer.paused && audioPlayer.currentTime > 0);
     currentSongIndex = (currentSongIndex + 1) % songs.length;
-    loadSong(currentSongIndex);
+    await loadSong(currentSongIndex); // loadSong sets icon to 'play' by default
+
+    if (playTheNewSong) {
+      audioPlayer.play().catch(e => console.error("Error playing next song:", e));
+    } else {
+    }
+    // The 'play'/'pause' event listeners on audioPlayer will update the button icon.
   }
 
-  function prevSong() {
+  async function prevSong() {
+    // Determine if the new song should play (e.g. if manually skipped while playing)
+    // Autoplay typically doesn't apply to "previous" action.
+    const playTheNewSong = !audioPlayer.paused && audioPlayer.currentTime > 0;
     currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-    loadSong(currentSongIndex);
+    await loadSong(currentSongIndex); // loadSong sets icon to 'play' by default
+
+    if (playTheNewSong) {
+      audioPlayer.play().catch(e => console.error("Error playing previous song:", e));
+    } else {
+    }
+    // The 'play'/'pause' event listeners on audioPlayer will update the button icon.
   }
 
   function toggleMute() {
@@ -151,23 +149,24 @@ document.addEventListener("DOMContentLoaded", () => {
     audioPlayer.volume = volumeControl.value;
     // Unmute if user adjusts volume while muted
     if (isMuted && audioPlayer.volume > 0) {
-        toggleMute();
+      toggleMute();
     }
   });
 
   lyricsButton.addEventListener("click", () => {
-    lyricsContainer.style.display =
-      lyricsContainer.style.display === "none" ? "flex" : "none";
+    lyricsContainer.style.display = lyricsContainer.style.display === "none" ? "flex" : "none";
   });
 
   // Load the initial song
-  loadSong(currentSongIndex);
+  await loadSong(currentSongIndex);
 
   // Update play/pause button when song ends
   audioPlayer.addEventListener('ended', () => {
-    playButton.textContent = "▶️";
-    // Optional: Automatically play next song
-    // nextSong();
+    playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>'; // Set icon to play as current song ended
+    if (isAutoplayEnabled) {
+      nextSong(); // Load the next song
+      // The audioPlayer's 'play' event listener will update the button icon to pause.
+    }
   });
 
   // Update play/pause button state if playback state changes externally
@@ -192,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
           lyricsTextElement.textContent = lyric.text;
           lyricsTextElement.textContent = lyric.text;
           currentLyricIndex = i;
-          console.log("Lyric updated:", lyric.text); // Add this line
         }
         foundLyric = true;
         break; // Found the current lyric, exit loop
@@ -202,14 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // If no lyric matches the current time (e.g., silence), clear the display
     // only if a lyric was previously displayed
     if (!foundLyric && currentLyricIndex !== -1) {
-        lyricsTextElement.textContent = "";
-        currentLyricIndex = -1; // Reset index since nothing is displayed
+      lyricsTextElement.textContent = "";
+      currentLyricIndex = -1; // Reset index since nothing is displayed
     }
   });
 
   // --- Album Info Popup Logic ---
   alertIcon.addEventListener("click", () => {
-    albumInfo.style.display = "block";
+    // Toggle display
+    albumInfo.style.display = albumInfo.style.display === "block" ? "none" : "block";
   });
 
   closeAlbumInfo.addEventListener("click", () => {
@@ -226,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ensure intro is fully hidden before removing from DOM flow (optional)
     setTimeout(() => {
-        introAnimation.style.display = 'none';
+      introAnimation.style.display = 'none';
     }, 500); // Match CSS transition duration
   }
 
@@ -236,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Attempt to play intro sound
     introSound.play().catch(error => {
-      console.warn("Intro sound autoplay failed:", error);
       // Autoplay might be blocked, sound won't play without user interaction.
     });
 
@@ -247,9 +245,25 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         sessionStorage.setItem('introPlayed', 'true');
       } catch (e) {
-        console.warn("SessionStorage not available:", e);
+        // SessionStorage not available
       }
     }, introDuration);
+  }
+
+  // --- Autoplay Toggle Logic ---
+  if (autoplayToggle) {
+    isAutoplayEnabled = autoplayToggle.checked; // Initialize based on the toggle's default state
+
+    autoplayToggle.addEventListener('change', () => {
+      isAutoplayEnabled = autoplayToggle.checked;
+      // If autoplay is now enabled AND the current song has ended, trigger nextSong.
+      // nextSong itself will decide to play based on isAutoplayEnabled.
+      if (isAutoplayEnabled && audioPlayer.ended) {
+        nextSong();
+      }
+    });
+  } else {
+    // Autoplay toggle element not found
   }
 
   // --- Check if intro should play ---
@@ -263,8 +277,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   } catch (e) {
     // SessionStorage might be disabled or unavailable (e.g., private browsing)
-    console.warn("SessionStorage check failed, playing intro by default:", e);
     startIntro(); // Play intro if sessionStorage check fails
   }
 
 }); // End of DOMContentLoaded listener
+
+// --- PWA Install Notification Logic ---
+let deferredInstallPrompt = null;
+const installButton = document.createElement('button');
+installButton.textContent = 'Install App';
+installButton.style.display = 'none'; // Initially hidden
+installButton.style.position = 'absolute';
+installButton.style.top = '10px';
+installButton.style.left = '10px';
+installButton.style.zIndex = '1000';
+document.body.appendChild(installButton);
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  installButton.style.display = 'block';
+
+  installButton.addEventListener('click', () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      deferredInstallPrompt.userChoice
+        .then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            // User accepted the install prompt
+          } else {
+            // User dismissed the install prompt
+          }
+          deferredInstallPrompt = null;
+          installButton.style.display = 'none';
+        });
+    }
+  });
+});
+
+window.addEventListener('appinstalled', (event) => {
+  // App installed successfully
+});

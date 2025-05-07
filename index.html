@@ -1,236 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Que se prenda el cerro | Un EP onírico</title>
-    <meta
-      name="description"
-      content="Reproductor musical para escuchar el EP Que se prenda el cerro."
-    />
-    <meta
-      name="keywords"
-      content="que se prenda el cerro, musica, retroplayer, EP"
-    />
-    <meta property="og:title" content="Que se prenda el cerro" />
-    <meta
-      property="og:description"
-      content="Reproductor musical para escuchar el EP Que se prenda el cerro."
-    />
-    <meta
-      property="og:image"
-      content="https://gift.ahautalam.com/que se prenda el cerro.png"
-    />
-    <meta property="og:url" content="https://gift.ahautalam.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--android.css" />
-    <link
-      rel="stylesheet"
-      href="assets/pixel-ui/pixelarticons--battery-full.css"
-    />
-    <link
-      rel="stylesheet"
-      href="assets/pixel-ui/pixelarticons--bluetooth.css"
-    />
-    <link
-      rel="stylesheet"
-      href="assets/pixel-ui/pixelarticons--cellular-signal-3.css"
-    />
-    <link
-      rel="stylesheet"
-      href="assets/pixel-ui/pixelarticons--mood-happy.css"
-    />
-    <link
-      rel="stylesheet"
-      href="assets/pixel-ui/pixelarticons--moon-stars.css"
-    />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--music.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--next.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--play.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--pause.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--prev.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-3.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-x.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--alert.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--close.css" />
-    <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--heart.css" />
 
-    <!-- Manifest and Icons -->
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="shortcut icon" href="favicon.ico" />
-  </head>
-  <body>
-    <!-- Intro Animation Container -->
-    <div id="intro-animation">
-      <img src="intro_player.svg" alt="Loading Logo" id="intro-logo" />
-      <audio
-        id="intro-sound"
-        src="assets/audio/ahautalam.mp3"
-        preload="auto"
-      ></audio>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Que se prenda el cerro | Un EP onírico</title>
+  <meta name="description" content="Reproductor musical para escuchar el EP Que se prenda el cerro." />
+  <meta name="keywords" content="que se prenda el cerro, musica, retroplayer, EP" />
+  <meta property="og:title" content="Que se prenda el cerro" />
+  <meta property="og:description" content="Reproductor musical para escuchar el EP Que se prenda el cerro." />
+  <meta property="og:image" content="https://gift.ahautalam.com/que-se-prenda-el-cerro.png" />
+  <meta property="og:url" content="https://gift.ahautalam.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--android.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--battery-full.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--bluetooth.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--cellular-signal-3.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--mood-happy.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--moon-stars.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--music.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--next.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--play.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--pause.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--prev.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-3.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--volume-x.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--alert.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--close.css" />
+  <link rel="stylesheet" href="assets/pixel-ui/pixelarticons--heart.css" />
 
-    <!-- Main Content (Initially Hidden) -->
-    <div id="main-content" style="display: none">
-      <div class="player-container">
-        <div id="retro-grid-container"></div>
-        <!-- Added grid container -->
-        <!-- Top Bar -->
-        <div class="top-bar">
-          <!-- Left Icons -->
-          <div class="top-bar-left">
-            <span
-              id="alertIcon"
-              class="pixelarticons pixelarticons--alert icon-link"
-            ></span>
-            <a
-              href="https://www.tiktok.com/@ahautalam"
-              target="_blank"
-              class="icon-link"
-            >
-              <span class="pixelarticons pixelarticons--close"></span>
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=xLO8tVAI83E"
-              target="_blank"
-              class="icon-link"
-            >
-              <span class="pixelarticons pixelarticons--heart"></span>
-            </a>
-          </div>
+  <!-- Manifest and Icons -->
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
 
-          <!-- Right Icons -->
-          <div class="top-bar-right">
-            <div class="icon battery">
-              <span class="pixelarticons pixelarticons--battery-full"></span>
-            </div>
-            <div class="icon wifi">
-              <span
-                class="pixelarticons pixelarticons--cellular-signal-3"
-              ></span>
-            </div>
-            <span class="pixelarticons pixelarticons--music"></span>
-          </div>
+<body>
+  <!-- Intro Animation Container -->
+  <div id="intro-animation">
+    <img src="intro_player.svg" alt="Loading Logo" id="intro-logo" />
+    <audio id="intro-sound" src="assets/audio/ahautalam.mp3" preload="auto"></audio>
+  </div>
+
+  <!-- Main Content (Initially Hidden) -->
+  <div id="main-content" style="display: none">
+    <div class="player-container">
+      <div id="retro-grid-container"></div>
+      <!-- Added grid container -->
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <!-- Left Icons -->
+        <div class="top-bar-left">
+          <span id="alertIcon" class="pixelarticons pixelarticons--alert icon-link"></span>
+          <a href="https://www.tiktok.com/@ahautalam" target="_blank" class="icon-link">
+            <span class="pixelarticons pixelarticons--close"></span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=xLO8tVAI83E" target="_blank" class="icon-link">
+            <span class="pixelarticons pixelarticons--heart"></span>
+          </a>
         </div>
 
-        <!-- Album Info Popup (Initially Hidden) -->
-        <div id="albumInfo" class="album-info-popup" style="display: none">
-          <button id="closeAlbumInfo" class="close-button">
-            <span class="pixelarticons pixelarticons--close"></span>
-          </button>
-          <h3>🔥Que se Prenda el Cerro🔥</h3>
-          <p>
-            Un EP explosivo que fusiona electrónica experimental, psicodelia
-            urbana y narrativas poéticas. Cada canción es un viaje visual y
-            emocional por paisajes oníricos, desiertos mentales y rincones
-            oscuros del alma. Sonidos que arden, voces que resisten y visiones
-            que estallan como cerros en llamas.
+        <!-- Right Icons -->
+        <div class="top-bar-right">
+          <div class="icon battery">
+            <span class="pixelarticons pixelarticons--battery-full"></span>
+          </div>
+          <div class="icon wifi">
+            <span class="pixelarticons pixelarticons--cellular-signal-3"></span>
+          </div>
+          <span class="pixelarticons pixelarticons--music"></span>
+        </div>
+      </div>
+
+      <!-- Album Info Popup (Initially Hidden) -->
+      <div id="albumInfo" class="album-info-popup" style="display: none">
+        <button id="closeAlbumInfo" class="close-button">
+          <span class="pixelarticons pixelarticons--close"></span>
+        </button>
+        <h2 style="text-align: center">🔥Que se Prenda el Cerro🔥</h2>
+        <p style="text-align: left;">
+          <strong>Que se Prenda el Cerro</strong> es un EP producido en <a href="https://www.ahautalam.com"
+            target="_blank">🔥Ahau Talam🔥</a> que mezcla electrónica experimental, poesía sonora y visuales retro. Cada
+          canción
+          narra un viaje onírico a través de escenas simbólicas y emociones intensas. <em>“Que se Prenda el Cerro”</em>
+          cuenta
+          con la voz femenina de
+          <strong><a href="https://www.youtube.com/@synthetican7210" target="_blank">Synthetican</a></strong> y violín
+          de
+          <strong>Saúl Taboa</strong>, dando vida a una experiencia tribal y ceremonial. En
+          <em>“El Milagro de Satán Teresa”</em>, <strong>Martín Corona</strong> aporta una base sólida con bajo y
+          batería que
+          enciende la intensidad emocional de la pieza. El desarrollo visual y funcional estuvo a cargo de
+          <strong>Gibrán Jalil</strong> usando tecnologías web y asistencia de IA con Gemini. Esta obra es parte de
+          nuestro
+          modelo de promoción digital interactiva para artistas de casa.
+          <br><br>
+          🔊 Escucha más de Synthetican en <a href="https://soundcloud.com/synthetican" target="_blank">SoundCloud</a>
+          <br><br>
+          🔊 Suígue a Synthetican en <a href="https://www.facebook.com/profile.php?id=61570416665688"
+            target="_blank">Facebook</a>
+          <br><br>
+          🔗 <a href="https://github.com/khalilflores/player-cerro" target="_blank">Ver proyecto completo en GitHub</a>
+        </p>
+      </div>
+      <!-- Game Boy Top Bar -->
+      <div class="gb-top-bar">
+        <div class="led"></div>
+        <span class="dot-matrix-text">DOT MATRIX WITH STEREO SOUND</span>
+      </div>
+
+      <!-- CRT Screen -->
+      <div class="crt-screen">
+        <div class="scene-container">
+          <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
+        </div>
+        <div id="lyricsContainer">
+          <p id="lyricsText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <!-- Game Boy Top Bar -->
-        <div class="gb-top-bar">
-          <div class="led"></div>
-          <span class="dot-matrix-text">DOT MATRIX WITH STEREO SOUND</span>
-        </div>
-
-        <!-- CRT Screen -->
-        <div class="crt-screen">
-          <div class="scene-container">
-            <img
-              src="assets/scenes/cerro/cerro.gif"
-              alt="Cerro Image"
-              id="cerroImage"
-            />
-          </div>
-          <div id="lyricsContainer">
-            <p id="lyricsText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          <!-- Removed incorrect RetroGrid usage -->
-        </div>
-
-        <!-- Audio Controls -->
-        <div class="audio-controls">
-          <button class="control-button prev">
-            <span class="pixelarticons pixelarticons--prev"></span>
-          </button>
-          <button class="control-button play">
-            <span class="pixelarticons pixelarticons--play"></span>
-          </button>
-          <button class="control-button next">
-            <span class="pixelarticons pixelarticons--next"></span>
-          </button>
-          <button class="control-button mute">
-            <span class="pixelarticons pixelarticons--volume-x"></span>
-          </button>
-        </div>
-
-        <!-- Volume Control -->
-        <input
-          type="range"
-          id="volumeControl"
-          min="0"
-          max="1"
-          step="0.01"
-          value="1"
-        />
-
-        <!-- Song Title -->
-        <div class="song-title"><span>Song Title</span></div>
-        <div class="ep-title">
-          <span>EP Onírico</span>
-        </div>
-
-        <!-- Lyrics Toggle Button -->
-        <div class="select">
-          <a href="https://vc.ahautalam.com/taotormenta" target="_blank">
-            <button id="select"></button
-          ></a>
-          <div class="select-label">TAO</div>
-        </div>
-
-        <!-- Lyrics Toggle Button -->
-        <div class="lyrics-control">
-          <button id="lyricsButton"></button>
-          <div class="lyrics-label">Letra</div>
-        </div>
-
-        <!-- Logos -->
-        <div class="logos-container">
-          <a href="https://www.ahautalam.com" target="_blank">
-            <div class="logo-circle">
-              <img
-                src="logo_ahau.png"
-                alt="Ahau Talam Logo"
-                class="logo-image"
-              />
-            </div>
-          </a>
-          <a href="Que-se-prenda-el-cerro-dossier.pdf" target="_blank">
-            <div class="logo-circle">
-              <img
-                src="logo_prenda.png"
-                alt="Que se Prenda el Cerro Logo"
-                class="logo-image"
-              /></div
-          ></a>
-        </div>
-
-        <!-- Audio Element -->
-        <audio
-          id="audioPlayer"
-          src="assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3"
-        ></audio>
+        <!-- Removed incorrect RetroGrid usage -->
       </div>
+
+      <!-- Audio Controls -->
+      <div class="audio-controls">
+        <button class="control-button prev">
+          <span class="pixelarticons pixelarticons--prev"></span>
+        </button>
+        <button class="control-button play">
+          <span class="pixelarticons pixelarticons--play"></span>
+        </button>
+        <button class="control-button next">
+          <span class="pixelarticons pixelarticons--next"></span>
+        </button>
+        <button class="control-button mute">
+          <span class="pixelarticons pixelarticons--volume-x"></span>
+        </button>
+      </div>
+
+      <!-- Volume Control -->
+      <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" />
+
+      <!-- Song Title -->
+      <div class="song-title"><span>Song Title</span></div>
+      <div class="ep-title">
+        <span>EP Onírico</span>
+      </div>
+
+      <!-- Lyrics Toggle Button -->
+      <div class="select">
+        <a href="https://vc.ahautalam.com/taotormenta" target="_blank">
+          <button id="select"></button></a>
+        <div class="select-label">TAO</div>
+      </div>
+
+      <!-- Lyrics Toggle Button -->
+      <div class="lyrics-control">
+        <button id="lyricsButton"></button>
+        <div class="lyrics-label">Letra</div>
+      </div>
+
+      <!-- Logos -->
+      <div class="logos-container">
+        <a href="https://www.ahautalam.com" target="_blank">
+          <div class="logo-circle">
+            <img src="logo_ahau.png" alt="Ahau Talam Logo" class="logo-image" />
+          </div>
+        </a>
+
+        <!-- Autoplay Toggle Switch -->
+        <div class="autoplay-switch-container">
+          <label for="autoplayToggle" class="autoplay-switch">
+            <input type="checkbox" id="autoplayToggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="autoplay-label">Auto</span>
+        </div>
+
+        <a href="Que-se-prenda-el-cerro-dossier.pdf" target="_blank">
+          <div class="logo-circle">
+            <img src="logo_prenda.png" alt="Que se Prenda el Cerro Logo" class="logo-image" />
+          </div>
+        </a>
+      </div>
+
+      <!-- Audio Element -->
+      <audio id="audioPlayer" src="assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3"></audio>
     </div>
-    <script src="main.js"></script>
-    <script src="retro-grid-plain.js" defer></script>
-    <!-- Added plain JS script -->
-  </body>
+  </div>
+  <script src="main.js"></script>
+  <script src="retro-grid-plain.js" defer></script>
+  <!-- Added plain JS script -->
+</body>
+
 </html>
