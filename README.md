@@ -60,9 +60,9 @@ En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales int
 
 | Área           | Responsable                     |
 | -------------- | ------------------------------- |
-| Diseño         | Khalilflores                    |
-| Animaciones    | Khalilflores + Gemini AI        |
-| Desarrollo Web | Khalilflores (con ayuda de MCP) |
+| Diseño         | Kuro Khalil                     |
+| Animaciones    | Kuro Khalil  + Gemini AI        |
+| Desarrollo Web | Kuro Khalil  (con ayuda de MCP) |
 | Voces          | Tao Tormenta                    |
 | Sonido & Beats | Hamura Beatsss                  |
 | Bajo  & Beats  | Martín Corona(Milagro de Satán) |
