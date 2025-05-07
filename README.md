@@ -15,15 +15,16 @@ Este proyecto fusiona música, visuales pixel art, y programación creativa como
 
 - 🎤 [@taotormenta](https://www.instagram.com/taotormenta)
 - 🎧 [@hamura_beatsss](https://www.instagram.com/hamura_beatsss)
-- 🥁 Martín Corona (bajo y batería en _El Milagro de Satán Teresa_)
+- 🎻 Saúl Taboa – Violín en *Que se Prenda el Cerro*
+- 🎙️ Synthetican – Voz femenina en *Que se Prenda el Cerro*
+- 🥁 Martín Corona – Bajo y batería en *Milagro de Satán Teresa*
 - 👨‍💻 Gibrán Jalil – Desarrollo e integración web
-
 ---
 
 ## 🖥️ Tecnologías Utilizadas
 
 - 💻 **Visual Studio Code**
-- 🤖 **MCP + Gemini (AI copilots)**
+- 🤖 **Chat GPT + MCP + Gemini (AI copilots)**
 - 🎨 **HTML5 + CSS3 (Pixel Art + Neobrutalismo)**
 - ⚙️ **JavaScript vanilla**
 
