@@ -32,16 +32,16 @@
 
   <!-- Manifest and Icons -->
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
 </head>
 
 <body>
   <!-- Intro Animation Container -->
   <div id="intro-animation">
-    <img src="intro_player.svg" alt="Loading Logo" id="intro-logo" />
+    <img src="assets/ui/intro_player.svg" alt="Loading Logo" id="intro-logo" />
     <audio id="intro-sound" src="assets/audio/ahautalam.mp3" preload="auto"></audio>
   </div>
 
@@ -112,24 +112,24 @@
         <span class="dot-matrix-text">DOT MATRIX WITH STEREO SOUND</span>
       </div>
 
-        <div class="crt-screen">
-          <div id="loadingOverlay" class="loading-overlay">
-            <div class="loading-text">LOADING...</div>
-            <div class="pixel-progress-bar">
-              <div id="loadingProgress" class="progress-fill"></div>
-            </div>
+      <div class="crt-screen">
+        <div id="loadingOverlay" class="loading-overlay">
+          <div class="loading-text">LOADING...</div>
+          <div class="pixel-progress-bar">
+            <div id="loadingProgress" class="progress-fill"></div>
           </div>
-          <div class="scene-container">
-            <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
-          </div>
-          <div id="lyricsContainer">
-            <p id="lyricsText">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          <!-- Removed incorrect RetroGrid usage -->
         </div>
+        <div class="scene-container">
+          <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
+        </div>
+        <div id="lyricsContainer">
+          <p id="lyricsText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <!-- Removed incorrect RetroGrid usage -->
+      </div>
 
       <!-- Audio Controls -->
       <div class="audio-controls">
@@ -173,7 +173,7 @@
       <div class="logos-container">
         <a href="https://www.ahautalam.com" target="_blank">
           <div class="logo-circle">
-            <img src="logo_ahau.png" alt="Ahau Talam Logo" class="logo-image" />
+            <img src="assets/ui/logo_ahau.png" alt="Ahau Talam Logo" class="logo-image" />
           </div>
         </a>
 
@@ -188,7 +188,7 @@
 
         <a href="Que-se-prenda-el-cerro-dossier.pdf" target="_blank">
           <div class="logo-circle">
-            <img src="logo_prenda.png" alt="Que se Prenda el Cerro Logo" class="logo-image" />
+            <img src="assets/ui/logo_prenda.png" alt="Que se Prenda el Cerro Logo" class="logo-image" />
           </div>
         </a>
       </div>
@@ -197,9 +197,8 @@
       <audio id="audioPlayer" src="assets/audio/Tao Tormenta  Hamura Beatsss  - Que se Prenda el Cerro.mp3"></audio>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script type="module" src="src/main.js"></script>
   <script src="retro-grid-plain.js" defer></script>
-  <!-- Added plain JS script -->
 </body>
 
 </html>
