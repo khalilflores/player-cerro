@@ -26,25 +26,30 @@ Este proyecto fusiona música, visuales pixel art, y programación creativa como
 - 💻 **Visual Studio Code**
 - 🤖 **Chat GPT + MCP + Gemini (AI copilots)**
 - 🎨 **HTML5 + CSS3 (Pixel Art + Neobrutalismo)**
-- ⚙️ **JavaScript vanilla**
+- ⚙️ **JavaScript Moderno (ES6 Modules + Clean Architecture)**
+- 🎥 **Video Backgrounds optimizados**
 
 ---
 
 ## 🕹️ Funcionalidad
 
-- Reproductor musical con estilo Game Boy
-- Pantallas animadas por canción:  
-  🎵 _Que se Prenda el Cerro_, _El Milagro de Satán Teresa_, _El Payaso Triste_
-- Botones interactivos pixelados: Play, Pause, Lyrics
-- Animaciones CRT, escaneado retro, y efecto “dot matrix”
-- Intro animada estilo consola (con sonido de boot personalizado)
-- Completamente responsive
+- **Reproductor estilo Game Boy Color:** Interfaz nostálgica y pixel perfect.
+- **Escenas de Video:** Cada canción cuenta con su propio visual en loop (video pixelado).
+- **Sincronización de Letras (LRC/SRT):** Visualización de karaoke en tiempo real.
+- **Controles Interactivos:**
+    - Botones Play/Pause, Next/Prev, Mute con feedback visual.
+    - Slider de volumen estilo retro.
+    - Toggle para mostrar/ocultar letras.
+    - Modo Autoplay.
+- **Intro Animada:** Secuencia de inicio estilo consola con sonido de boot.
+- **Efectos Visuales:** Scanlines CRT, efecto ghosting y dot matrix.
+- **Responsive Design:** Adaptado para móviles y escritorio.
 
 ---
 
 ## 📣 Nuestro modelo de promoción artística
 
-En **Ahautalam**, apoyamos a nuestros artistas creando experiencias visuales interactivas y retro-digitales que no solo destacan su música, sino que también cuentan historias. Este proyecto es un ejemplo de cómo usamos la web como escenario.
+En **Ahau Talam**, apoyamos a nuestros artistas creando experiencias visuales interactivas y retro-digitales que no solo destacan su música, sino que también cuentan historias. Este proyecto es un ejemplo de cómo usamos la web como escenario.
 
 💻 Si eres artista independiente, ¡colabora con nosotros!
 
