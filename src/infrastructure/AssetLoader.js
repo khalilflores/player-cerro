@@ -8,6 +8,16 @@ export class AssetLoader {
         });
     }
 
+    static preloadVideo(url) {
+        return new Promise((resolve, reject) => {
+            const video = document.createElement('video');
+            video.src = url;
+            video.onloadeddata = () => resolve(video);
+            video.onerror = (err) => reject(err);
+            video.load(); // Start loading
+        });
+    }
+
     static async loadText(url) {
         const response = await fetch(url);
         if (!response.ok) {

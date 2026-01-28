@@ -8,13 +8,17 @@ export class IntroAnimation {
     }
 
     init() {
-        try {
-            if (sessionStorage.getItem('introPlayed')) {
-                this.showMainContent();
-            } else {
-                this.start();
-            }
-        } catch (e) {
+        const startScreen = document.getElementById('start-screen');
+
+        const startSequence = () => {
+            if (startScreen) startScreen.style.display = 'none';
+            this.start();
+        };
+
+        if (startScreen) {
+            startScreen.addEventListener('click', startSequence);
+        } else {
+            // Fallback if no start screen exists
             this.start();
         }
     }

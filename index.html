@@ -39,9 +39,15 @@
 </head>
 
 <body>
+  <!-- Start Screen (For Autoplay Policy) -->
+  <div id="start-screen"
+    style="position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; justify-content: center; align-items: center; color: white; font-family: 'Press Start 2P', cursive; cursor: pointer;">
+    <div>DA CLICK PARA COMENZAR</div>
+  </div>
+
   <!-- Intro Animation Container -->
   <div id="intro-animation">
-    <img src="assets/ui/intro_player.svg" alt="Loading Logo" id="intro-logo" />
+    <img src="assets/ui/intro_player.webp" alt="Loading Logo" id="intro-logo" />
     <audio id="intro-sound" src="assets/audio/ahautalam.mp3" preload="auto"></audio>
   </div>
 
@@ -120,7 +126,9 @@
           </div>
         </div>
         <div class="scene-container">
-          <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
+          <video id="sceneVideo" autoplay loop muted playsinline>
+            <!-- Sources will be injected by JS -->
+          </video>
         </div>
         <div id="lyricsContainer">
           <p id="lyricsText">
@@ -156,17 +164,20 @@
         <span>EP Onírico</span>
       </div>
 
-      <!-- Lyrics Toggle Button -->
-      <div class="select">
-        <a href="https://vc.ahautalam.com/taotormenta" target="_blank">
-          <button id="select"></button></a>
-        <div class="select-label">TAO</div>
-      </div>
+      <!-- Start/Select Buttons Container (Cont5) -->
+      <div class="start-select-container">
+        <!-- Select (Tao) -->
+        <div class="select">
+          <a href="https://tao-tormenta.vercel.app" target="_blank">
+            <button id="select" class="pill-button"></button></a>
+          <div class="select-label">TAO</div>
+        </div>
 
-      <!-- Lyrics Toggle Button -->
-      <div class="lyrics-control">
-        <button id="lyricsButton"></button>
-        <div class="lyrics-label">Letra</div>
+        <!-- Start (Letra) -->
+        <div class="lyrics-control">
+          <button id="lyricsButton" class="pill-button"></button>
+          <div class="lyrics-label">Letra</div>
+        </div>
       </div>
 
       <!-- Logos -->

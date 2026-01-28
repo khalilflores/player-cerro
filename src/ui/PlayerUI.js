@@ -17,7 +17,7 @@ export class PlayerUI {
             lyricsButton: document.getElementById("lyricsButton"),
             lyricsContainer: document.getElementById("lyricsContainer"),
             lyricsText: document.getElementById("lyricsText"),
-            sceneImage: document.querySelector(".scene-container img"),
+            sceneVideo: document.getElementById("sceneVideo"),
             body: document.body,
             alertIcon: document.getElementById("alertIcon"),
             albumInfo: document.getElementById("albumInfo"),
@@ -40,11 +40,14 @@ export class PlayerUI {
         this.elements.playButton.addEventListener("click", () => {
             if (this.audioPlayer.isPlaying()) {
                 this.audioPlayer.pause();
+                this.elements.sceneVideo.pause(); // Pause video too
             } else {
                 this.audioPlayer.play().catch(console.error);
+                this.elements.sceneVideo.play().catch(console.error); // Play video
             }
         });
 
+        // ... (remaining event listeners)
         this.elements.volumeControl.addEventListener("input", (e) => {
             this.audioPlayer.setVolume(e.target.value);
             if (this.audioPlayer.isMuted && this.audioPlayer.audio.volume > 0) {
@@ -79,8 +82,14 @@ export class PlayerUI {
         this.audioPlayer.audio.addEventListener("timeupdate", () => this.syncLyrics());
 
         // Icon updates
-        this.audioPlayer.audio.addEventListener("play", () => this.updatePlayIcon(true));
-        this.audioPlayer.audio.addEventListener("pause", () => this.updatePlayIcon(false));
+        this.audioPlayer.audio.addEventListener("play", () => {
+            this.updatePlayIcon(true);
+            this.elements.sceneVideo.play().catch(console.error);
+        });
+        this.audioPlayer.audio.addEventListener("pause", () => {
+            this.updatePlayIcon(false);
+            this.elements.sceneVideo.pause();
+        });
 
         // Auto-next (This needs to be wired to the main controller's next action)
         // Done via main.js passing a callback or event, or exposing an onEnded
@@ -124,14 +133,40 @@ export class PlayerUI {
             // Preload content
             const tasks = [];
 
-            // Image
-            tasks.push(AssetLoader.preloadImage(song.scene).then(() => {
-                if (this.loadId === currentId) {
-                    this.elements.sceneImage.src = song.scene;
-                    this.elements.sceneImage.alt = song.title;
-                    this.loadingOverlay.incrementProgress(40);
-                }
-            }));
+            // Video (MP4 and WebM)
+            const videoPromise = new Promise((resolve, reject) => {
+                this.elements.sceneVideo.innerHTML = `
+                        <source src="${song.scene.mp4}" type="video/mp4">
+                        <source src="${song.scene.webm}" type="video/webm">
+                 `;
+                this.elements.sceneVideo.load();
+
+                const onCanPlay = () => {
+                    this.elements.sceneVideo.removeEventListener('canplay', onCanPlay);
+                    this.elements.sceneVideo.removeEventListener('error', onError);
+
+                    if (this.loadId === currentId) {
+                        // Try to play immediately but muted
+                        this.elements.sceneVideo.play().catch(e => console.log("Autoplay blocked/failed", e));
+                        this.loadingOverlay.incrementProgress(40);
+                        resolve();
+                    }
+                };
+
+                const onError = (e) => {
+                    this.elements.sceneVideo.removeEventListener('canplay', onCanPlay);
+                    this.elements.sceneVideo.removeEventListener('error', onError);
+                    if (this.loadId === currentId) {
+                        console.error("Video load error", e);
+                        // Resolve anyway to avoid blocking the UI forever
+                        resolve();
+                    }
+                };
+
+                this.elements.sceneVideo.addEventListener('canplay', onCanPlay);
+                this.elements.sceneVideo.addEventListener('error', onError);
+            });
+            tasks.push(videoPromise);
 
             // Lyrics
             if (song.srt) {
