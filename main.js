@@ -63,36 +63,85 @@ document.addEventListener("DOMContentLoaded", async () => {
     return lyrics;
   }
 
+  // --- Preload Image Helper ---
+  function preloadImage(url) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve(img);
+      img.onerror = (err) => reject(err);
+    });
+  }
+
   // --- Load Song and Lyrics ---
   async function loadSong(songIndex) {
     const song = songs[songIndex];
-    audioPlayer.src = song.src;
-    songTitleElement.textContent = `${song.title} - ${song.artist}`;
-    sceneImage.src = song.scene;
-    sceneImage.alt = song.title;
-    bodyElement.style.backgroundImage = song.background;
-    currentLyrics = [];
-    currentLyricIndex = -1;
-    lyricsTextElement.textContent = "";
+    const loadingOverlay = document.getElementById("loadingOverlay");
+    const loadingProgress = document.getElementById("loadingProgress");
 
-    if (song.srt) {
-      try {
-        const response = await fetch(song.srt);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const srtContent = await response.text();
-        currentLyrics = parseSRT(srtContent);
-      } catch (error) {
-        console.error("Error loading or parsing SRT file:", error);
+    // Show loading overlay
+    loadingOverlay.classList.add("active");
+    loadingProgress.style.width = "0%";
+
+    try {
+      // 1. Load Audio (Initial part)
+      audioPlayer.src = song.src;
+      songTitleElement.textContent = `${song.title} - ${song.artist}`;
+
+      // Update progress for audio start
+      loadingProgress.style.width = "20%";
+
+      // 2. Preload GIF & Lyrics concurrently
+      const preloadTasks = [];
+
+      // GIF Task
+      preloadTasks.push(preloadImage(song.scene).then(() => {
+        sceneImage.src = song.scene;
+        sceneImage.alt = song.title;
+        loadingProgress.style.width = (parseFloat(loadingProgress.style.width) + 40) + "%";
+      }));
+
+      // Lyrics Task
+      if (song.srt) {
+        preloadTasks.push(fetch(song.srt)
+          .then(async response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const srtContent = await response.text();
+            currentLyrics = parseSRT(srtContent);
+            loadingProgress.style.width = (parseFloat(loadingProgress.style.width) + 40) + "%";
+          })
+          .catch(error => {
+            console.error("Error loading or parsing SRT file:", error);
+            lyricsTextElement.textContent = "Lyrics not available.";
+            loadingProgress.style.width = (parseFloat(loadingProgress.style.width) + 40) + "%";
+          })
+        );
+      } else {
         lyricsTextElement.textContent = "Lyrics not available.";
+        loadingProgress.style.width = (parseFloat(loadingProgress.style.width) + 40) + "%";
       }
-    } else {
-      lyricsTextElement.textContent = "Lyrics not available.";
+
+      bodyElement.style.backgroundImage = song.background;
+      currentLyricIndex = -1;
+      lyricsTextElement.textContent = "";
+
+      // Wait for all preloads to finish
+      await Promise.all(preloadTasks);
+
+      // Final progress pulse
+      loadingProgress.style.width = "100%";
+
+      // Small delay for visual feedback of full bar
+      setTimeout(() => {
+        loadingOverlay.classList.remove("active");
+      }, 300);
+
+    } catch (error) {
+      console.error("Error during song load:", error);
+      loadingOverlay.classList.remove("active");
     }
 
     // After src change, player is usually paused. Set icon to play.
-    // Actual playback is handled by the calling function (playPauseSong, nextSong, prevSong).
     playButton.innerHTML = '<span class="pixelarticons pixelarticons--play"></span>';
   }
 

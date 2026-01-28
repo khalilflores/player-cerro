@@ -229,6 +229,72 @@ a:hover {
   /* Rounded corners */
 }
 
+/* --- Loading Overlay Styles --- */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161b11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loading-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8em;
+  color: #e6d6a1;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.pixel-progress-bar {
+  width: 70%;
+  height: 16px;
+  background-color: #000;
+  border: 3px solid #e6d6a1;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #912d36;
+  image-rendering: pixelated;
+  transition: width 0.1s linear;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 4px,
+      transparent 4px,
+      transparent 8px);
+  pointer-events: none;
+}
+
 /* Scanlines effect */
 .crt-screen::before {
   content: '';

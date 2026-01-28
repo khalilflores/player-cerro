@@ -112,19 +112,24 @@
         <span class="dot-matrix-text">DOT MATRIX WITH STEREO SOUND</span>
       </div>
 
-      <!-- CRT Screen -->
-      <div class="crt-screen">
-        <div class="scene-container">
-          <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
+        <div class="crt-screen">
+          <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-text">LOADING...</div>
+            <div class="pixel-progress-bar">
+              <div id="loadingProgress" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="scene-container">
+            <img src="assets/scenes/cerro/cerro.gif" alt="Cerro Image" id="cerroImage" />
+          </div>
+          <div id="lyricsContainer">
+            <p id="lyricsText">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <!-- Removed incorrect RetroGrid usage -->
         </div>
-        <div id="lyricsContainer">
-          <p id="lyricsText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <!-- Removed incorrect RetroGrid usage -->
-      </div>
 
       <!-- Audio Controls -->
       <div class="audio-controls">
